@@ -10,7 +10,6 @@ Url: http://www.cpan.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot/
 Requires: perl
 BuildArch: noarch
-Packager: Tanner Lovelace <lovelace-cpan@wayfarer.org>
 
 %description
 This module allows perl scripts to interact with the Gallery remote protocol.
@@ -36,5 +35,8 @@ find $RPM_BUILD_ROOT/usr -type f -print | sed "s@^$RPM_BUILD_ROOT@@g" | grep -v 
 %defattr(-,root,root)
 
 %changelog
+* Wed Apr  7 2004 Tanner Lovelace <lovelace@wayfarer.org> 0.2
+- Fix protocol comparisons.
+
 * Sat Jan 31 2004 Tanner Lovelace <lovelace@wayfarer.org>
 - Initial spec file.

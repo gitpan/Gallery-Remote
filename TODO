@@ -1,3 +1,4 @@
+- Look into making return code constants integers instead of strings.
 - Better error handling.
 - Make sure we support the entire protocol.
 - Better documentation

@@ -3,7 +3,7 @@ package Gallery::Remote;
 # An implementation of the gallery remote protocol as defined by
 # http://gallery.menalto.com/modules.php?op=modload&name=GalleryDocs&file=index&page=gallery-remote.protocol.php
 #
-# Copyright (C) 2004, Tanner Lovelace <lovelace@wayfarer.org>
+# Copyright (C) 2004, Tanner Lovelace <lovelace@cpan.org>
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public
@@ -133,8 +133,8 @@ use constant GR_STAT_CREATE_ALBUM_FAILED        => '502';
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION  = '0.01';
-$REVISION = (qw$Revision: 1.6 $)[-1];
+$VERSION  = '0.2';
+$REVISION = (qw$Rev: 13 $)[-1];
 
 # Preloaded methods go here.
 
@@ -305,10 +305,10 @@ sub login
     if ($response_fields->{status} eq GR_STAT_SUCCESS) {
 	# Make sure our version number is high enough
 	my ($major, $minor) = split('\.', $response_fields->{server_version});
-	if ($major ne PROTOCOL_MAJOR) {
+	if ($major != PROTOCOL_MAJOR) {
 	    die "Major protocol mismatch.  Was expecting " . PROTOCOL_MAJOR . ".  Got: $major";
 	}
-	if ($minor lt PROTOCOL_MINOR) {
+	if ($minor < PROTOCOL_MINOR) {
 	    die "Need a minor protocol of at least " . PROTOCOL_MINOR . ". Got: $minor";
 	}
 	$self->{LOGGEDIN} = 1;

@@ -7,3 +7,4 @@ MANIFEST
 Gallery-Remote.spec.in
 test.pl
 TODO
+META.yml                                Module meta-data (added by MakeMaker)
